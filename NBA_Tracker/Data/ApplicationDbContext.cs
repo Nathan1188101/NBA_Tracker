@@ -10,7 +10,7 @@ namespace NBA_Tracker.Data
         {
         }
         //will have to put getters and setters in here (reference veggitales) 
-
+        
 
     }
 }
