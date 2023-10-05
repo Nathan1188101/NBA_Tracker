@@ -9,11 +9,11 @@ using NBA_Tracker.Data;
 
 #nullable disable
 
-namespace NBA_Tracker.Data.Migrations
+namespace NBA_Tracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231005030103_Restrict")]
-    partial class Restrict
+    [Migration("20231005032230_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

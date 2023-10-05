@@ -8,7 +8,7 @@ using NBA_Tracker.Data;
 
 #nullable disable
 
-namespace NBA_Tracker.Data.Migrations
+namespace NBA_Tracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
