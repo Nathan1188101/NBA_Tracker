@@ -6,7 +6,8 @@ namespace NBA_Tracker.Models
     {
 
         //primary key 
-        public int StatsID { get; set; }
+        [Key]
+        public int StatId { get; set; }
 
         [Required] 
         public int Points { get; set; }
@@ -21,9 +22,9 @@ namespace NBA_Tracker.Models
 
         //foreign keys
         [Required]
-        public int GameID { get; set; }
+        public int GameId { get; set; }
         [Required]
-        public int PlayerID { get; set; } 
+        public int PlayerId { get; set; } 
 
         //refs to the parent
         public Game Game { get; set; }

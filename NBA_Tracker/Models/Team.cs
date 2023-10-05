@@ -5,7 +5,7 @@ namespace NBA_Tracker.Models
     public class Team
     {
         //Primary Key
-        public int TeamID { get; set; }
+        public int TeamId { get; set; }
 
         [Required]
         public string TeamName { get; set; }

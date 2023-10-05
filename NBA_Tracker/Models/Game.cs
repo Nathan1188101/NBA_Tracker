@@ -16,9 +16,9 @@ namespace NBA_Tracker.Models
 
         //Foreign keys 
         [Required]
-        public int HomeTeamID { get; set; } // these foreign keys link us to the Team model and the TeamID within to specify which teams are playing in said game
+        public int HomeTeamId { get; set; } // these foreign keys link us to the Team model and the TeamID within to specify which teams are playing in said game
         [Required]
-        public int AwayTeamID { get; set; }
+        public int AwayTeamId { get; set; }
 
         //parent ref
         public Team HomeTeam { get; set; }  

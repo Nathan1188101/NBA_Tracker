@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NBA_Tracker.Data;
 
@@ -11,9 +12,11 @@ using NBA_Tracker.Data;
 namespace NBA_Tracker.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231004235337_CreateInitialTable")]
+    partial class CreateInitialTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,13 +235,13 @@ namespace NBA_Tracker.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GameId"));
 
-                    b.Property<int>("AwayTeamId")
+                    b.Property<int>("AwayTeamID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("HomeTeamId")
+                    b.Property<int>("HomeTeamID")
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
@@ -247,9 +250,9 @@ namespace NBA_Tracker.Data.Migrations
 
                     b.HasKey("GameId");
 
-                    b.HasIndex("AwayTeamId");
+                    b.HasIndex("AwayTeamID");
 
-                    b.HasIndex("HomeTeamId");
+                    b.HasIndex("HomeTeamID");
 
                     b.ToTable("Games");
                 });
@@ -268,10 +271,10 @@ namespace NBA_Tracker.Data.Migrations
                     b.Property<int>("Blocks")
                         .HasColumnType("int");
 
-                    b.Property<int>("GameId")
+                    b.Property<int>("GameID")
                         .HasColumnType("int");
 
-                    b.Property<int>("PlayerId")
+                    b.Property<int>("PlayerID")
                         .HasColumnType("int");
 
                     b.Property<int>("Points")
@@ -285,9 +288,9 @@ namespace NBA_Tracker.Data.Migrations
 
                     b.HasKey("StatId");
 
-                    b.HasIndex("GameId");
+                    b.HasIndex("GameID");
 
-                    b.HasIndex("PlayerId");
+                    b.HasIndex("PlayerID");
 
                     b.ToTable("GamePlayerStats");
                 });
@@ -312,12 +315,12 @@ namespace NBA_Tracker.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int>("TeamID")
                         .HasColumnType("int");
 
                     b.HasKey("PlayerId");
 
-                    b.HasIndex("TeamId");
+                    b.HasIndex("TeamID");
 
                     b.ToTable("Players");
                 });
@@ -398,14 +401,14 @@ namespace NBA_Tracker.Data.Migrations
                 {
                     b.HasOne("NBA_Tracker.Models.Team", "AwayTeam")
                         .WithMany()
-                        .HasForeignKey("AwayTeamId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("AwayTeamID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NBA_Tracker.Models.Team", "HomeTeam")
                         .WithMany()
-                        .HasForeignKey("HomeTeamId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("HomeTeamID")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("AwayTeam");
@@ -417,13 +420,13 @@ namespace NBA_Tracker.Data.Migrations
                 {
                     b.HasOne("NBA_Tracker.Models.Game", "Game")
                         .WithMany()
-                        .HasForeignKey("GameId")
+                        .HasForeignKey("GameID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("NBA_Tracker.Models.Player", "Player")
                         .WithMany()
-                        .HasForeignKey("PlayerId")
+                        .HasForeignKey("PlayerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -436,7 +439,7 @@ namespace NBA_Tracker.Data.Migrations
                 {
                     b.HasOne("NBA_Tracker.Models.Team", "Team")
                         .WithMany()
-                        .HasForeignKey("TeamId")
+                        .HasForeignKey("TeamID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

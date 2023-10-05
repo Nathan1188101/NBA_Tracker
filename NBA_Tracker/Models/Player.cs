@@ -6,7 +6,7 @@ namespace NBA_Tracker.Models
     {
 
         //Primary Key
-        public int PlayerID { get; set; }
+        public int PlayerId { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -19,7 +19,7 @@ namespace NBA_Tracker.Models
 
         //Foreign Key
         [Required]
-        public int TeamID { get; set; } 
+        public int TeamId { get; set; } 
 
         //ref
         public Team Team { get; set; }  
