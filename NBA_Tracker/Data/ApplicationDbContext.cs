@@ -26,7 +26,8 @@ namespace NBA_Tracker.Data
          * tried to familiarize myself with this issue here https://learn.microsoft.com/en-us/ef/core/saving/cascade-delete
          * 
          */
-
+        
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -36,16 +37,15 @@ namespace NBA_Tracker.Data
                 .HasOne(g => g.HomeTeam)
                 .WithMany()
                 .HasForeignKey(g => g.HomeTeamId)
-                .OnDelete(DeleteBehavior.NoAction); //here is were we are disabling cascading deteles 
+                .OnDelete(DeleteBehavior.Restrict); //here is were we are disabling cascading deteles 
 
             modelBuilder.Entity<Game>()
                 .HasOne(g => g.AwayTeam)
                 .WithMany()
                 .HasForeignKey(g => g.AwayTeamId)
-                .OnDelete(DeleteBehavior.NoAction); //disabling cascade delete
+                .OnDelete(DeleteBehavior.Restrict); //disabling cascade delete
 
         }
-        
-
+       
     }
 }

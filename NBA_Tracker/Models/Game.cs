@@ -25,7 +25,5 @@ namespace NBA_Tracker.Models
         public Team AwayTeam { get; set; } 
 
 
-
-
     }
 }
