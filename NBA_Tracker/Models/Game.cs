@@ -21,8 +21,8 @@ namespace NBA_Tracker.Models
         public int AwayTeamId { get; set; }
 
         //parent ref
-        public Team HomeTeam { get; set; }  
-        public Team AwayTeam { get; set; } 
+        public Team? HomeTeam { get; set; }  
+        public Team? AwayTeam { get; set; } 
 
 
     }
