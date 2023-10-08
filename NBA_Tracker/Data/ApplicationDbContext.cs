@@ -10,7 +10,7 @@ namespace NBA_Tracker.Data
             : base(options)
         {
         }
-        //will have to put getters and setters in here (reference veggitales) 
+        //Create a DbSet CRUD object for each model (like in veggiTales)
         public DbSet<Game> Games { get; set; }
         public DbSet<GamePlayerStats> GamePlayerStats { get; set; }
         public DbSet<Player> Players { get; set; }

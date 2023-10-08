@@ -13,6 +13,8 @@ namespace NBA_Tracker.Models
         [Required]
         public string City { get; set; }
 
+        [Required]
+        public string Coach { get; set; }
 
     }
 }
