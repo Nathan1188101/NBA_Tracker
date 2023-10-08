@@ -22,7 +22,7 @@ namespace NBA_Tracker.Models
         public int TeamId { get; set; } 
 
         //ref
-        public Team Team { get; set; }  
+        public Team? Team { get; set; }  
 
 
     }

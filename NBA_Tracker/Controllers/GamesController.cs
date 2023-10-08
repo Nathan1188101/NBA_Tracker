@@ -85,8 +85,8 @@ namespace NBA_Tracker.Controllers
             {
                 return NotFound();
             }
-            ViewData["AwayTeamId"] = new SelectList(_context.Teams, "TeamId", "City", game.AwayTeamId);
-            ViewData["HomeTeamId"] = new SelectList(_context.Teams, "TeamId", "City", game.HomeTeamId);
+            ViewData["AwayTeamId"] = new SelectList(_context.Teams, "TeamId", "TeamName", game.AwayTeamId);
+            ViewData["HomeTeamId"] = new SelectList(_context.Teams, "TeamId", "TeamName", game.HomeTeamId);
             return View(game);
         }
 
