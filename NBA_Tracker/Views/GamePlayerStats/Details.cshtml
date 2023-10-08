@@ -1,0 +1,60 @@
+﻿@model NBA_Tracker.Models.GamePlayerStats
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>GamePlayerStats</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rebounds)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rebounds)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Assists)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Assists)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Steals)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Steals)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Blocks)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Blocks)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game.Location)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Player)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Player.FirstName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.StatId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
