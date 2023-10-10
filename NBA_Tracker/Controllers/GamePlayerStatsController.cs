@@ -49,8 +49,9 @@ namespace NBA_Tracker.Controllers
         // GET: GamePlayerStats/Create
         public IActionResult Create()
         {
-            ViewData["GameId"] = new SelectList(_context.Games, "GameId", "Location");
-            ViewData["PlayerId"] = new SelectList(_context.Players, "PlayerId", "FirstName");
+
+            ViewData["GameId"] = new SelectList(_context.Games, "GameId", "Date");
+            ViewData["PlayerId"] = new SelectList(_context.Players, "PlayerId", "LastName");
             return View();
         }
 
@@ -85,8 +86,8 @@ namespace NBA_Tracker.Controllers
             {
                 return NotFound();
             }
-            ViewData["GameId"] = new SelectList(_context.Games, "GameId", "Location", gamePlayerStats.GameId);
-            ViewData["PlayerId"] = new SelectList(_context.Players, "PlayerId", "FirstName", gamePlayerStats.PlayerId);
+            ViewData["GameId"] = new SelectList(_context.Games, "GameId", "Date", gamePlayerStats.GameId);
+            ViewData["PlayerId"] = new SelectList(_context.Players, "PlayerId", "LastName", gamePlayerStats.PlayerId);
             return View(gamePlayerStats);
         }
 

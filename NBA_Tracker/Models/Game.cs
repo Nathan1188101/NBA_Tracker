@@ -8,6 +8,7 @@ namespace NBA_Tracker.Models
         public int GameId { get; set; } // unique identifier for each game
 
         //Date (maybe add start time as well?)
+        //[DisplayFormat(DataFormatString =)] figure out how to format the date here (I don't like the default look) 
         [Required]
         public DateTime Date { get; set; }  // represent the date when the game takes place 
         //public TimeSpan StartTime { get; set; }

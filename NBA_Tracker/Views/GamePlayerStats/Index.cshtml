@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<NBA_Tracker.Models.GamePlayerStats>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Player Statistics";
 }
 
 <h1>Index</h1>
@@ -28,10 +28,10 @@
                 @Html.DisplayNameFor(model => model.Blocks)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Game)
+                @Html.DisplayNameFor(model => model.Player)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Player)
+                @Html.DisplayNameFor(model => model.Game)
             </th>
             <th></th>
         </tr>
@@ -54,11 +54,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Blocks)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Player.FirstName) @Html.DisplayFor(modelItem => item.Player.LastName)
+                </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Game.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Player.FirstName)
+                @Html.DisplayFor(modelItem => item.Game.Location) | @Html.DisplayFor(modelItem => item.Game.Date)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StatId">Edit</a> |

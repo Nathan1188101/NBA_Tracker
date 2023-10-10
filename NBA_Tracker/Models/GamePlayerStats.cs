@@ -27,8 +27,8 @@ namespace NBA_Tracker.Models
         public int PlayerId { get; set; } 
 
         //refs to the parent
-        public Game Game { get; set; }
-        public Player Player { get; set; }
+        public Game? Game { get; set; }
+        public Player? Player { get; set; }
 
     }
 }

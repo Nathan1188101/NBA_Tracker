@@ -1,5 +1,6 @@
 ﻿@model NBA_Tracker.Models.GamePlayerStats
 
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -7,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>GamePlayerStats</h4>
+    <h4> @Html.DisplayFor(model => model.Player.FirstName) @Html.DisplayFor(model => model.Player.LastName)'s Details</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -44,14 +45,16 @@
             @Html.DisplayNameFor(model => model.Game)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Game.Location)
+            @Html.DisplayFor(model => model.Game.Location) - @Html.DisplayFor(model => model.Game.Date)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Player)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Player.FirstName)
+            @Html.DisplayFor(model => model.Player.FirstName) @Html.DisplayFor(model => model.Player.LastName)
         </dd>
+        <!--Later add Home Team and Away Team so when the user clicks on details they can see which teams actually played in the game.-->
+
     </dl>
 </div>
 <div>
