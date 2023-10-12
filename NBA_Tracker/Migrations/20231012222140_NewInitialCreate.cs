@@ -6,12 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NBA_Tracker.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class NewInitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            /*
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -25,8 +24,7 @@ namespace NBA_Tracker.Migrations
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
                 });
-            
-            
+
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
@@ -51,7 +49,6 @@ namespace NBA_Tracker.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
-            */
 
             migrationBuilder.CreateTable(
                 name: "Teams",
@@ -60,14 +57,14 @@ namespace NBA_Tracker.Migrations
                     TeamId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TeamName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Coach = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teams", x => x.TeamId);
                 });
-            
-            /**
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
@@ -173,7 +170,6 @@ namespace NBA_Tracker.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
-            */
 
             migrationBuilder.CreateTable(
                 name: "Games",
@@ -256,7 +252,6 @@ namespace NBA_Tracker.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            /*
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -283,7 +278,6 @@ namespace NBA_Tracker.Migrations
                 name: "IX_AspNetUserRoles_RoleId",
                 table: "AspNetUserRoles",
                 column: "RoleId");
-            
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
@@ -296,7 +290,7 @@ namespace NBA_Tracker.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-            */
+
             migrationBuilder.CreateIndex(
                 name: "IX_GamePlayerStats_GameId",
                 table: "GamePlayerStats",

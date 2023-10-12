@@ -12,8 +12,8 @@ using NBA_Tracker.Data;
 namespace NBA_Tracker.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231005032230_Initial")]
-    partial class Initial
+    [Migration("20231012222140_NewInitialCreate")]
+    partial class NewInitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -334,6 +334,10 @@ namespace NBA_Tracker.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeamId"));
 
                     b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Coach")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
