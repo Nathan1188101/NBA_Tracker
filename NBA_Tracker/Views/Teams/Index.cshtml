@@ -5,11 +5,16 @@
 }
 
 <h1>Teams List</h1>
+<!--I only want to show this message as it is only relevant to a user that can see the link, so if they're signed in they'll see this along with the create link-->
+@if (User.Identity.IsAuthenticated){
 <p>NOTE:<br /> 
    Functionality to create, delete, and edit is here if needed, but this isn't something that changes often.</p>
-
+}
 <p>
-    <a asp-action="Create">Create New (if needed)</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create">Create New (if needed)</a> 
+    }
 </p>
 <table class="table">
     <thead>
@@ -38,12 +43,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Coach)
             </td>
+         @if (User.Identity.IsAuthenticated)
+           {
             <td>
                 <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
-                    <!--As teams don't get dropped rarley get dropped, the function will not be available to the user to delete an existing team.-->
-                    <a asp-action="Delete" asp-route-id="@item.TeamId">Delete (if needed)</a>
+                <a asp-action="Delete" asp-route-id="@item.TeamId">Delete (if needed)</a>
             </td>
+            }
         </tr>
 }
     </tbody>

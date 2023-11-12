@@ -7,7 +7,10 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <a asp-action="Create">Create New</a>
+    }
 </p>
 <table class="table">
     <thead>
@@ -60,11 +63,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Game.Location) | @Html.DisplayFor(modelItem => item.Game.Date)
             </td>
+         @if (User.Identity.IsAuthenticated){
             <td>
                 <a asp-action="Edit" asp-route-id="@item.StatId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.StatId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.StatId">Delete</a>
             </td>
+         }
         </tr>
 }
     </tbody>
