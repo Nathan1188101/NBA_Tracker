@@ -5,4 +5,4 @@ Additionally you can enter specific Players you'd like to keep track of and ente
 
 With all these options infront of you, it will be easy to keep track of the games and players you care about and access it all in one easy place. 
 
-link to site: https://nbatracker.azurewebsites.net/
+link to site: nbatracker1.azurewebsites.net
