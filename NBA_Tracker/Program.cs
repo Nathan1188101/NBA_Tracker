@@ -19,14 +19,14 @@ builder.Services.AddControllersWithViews();
 //enabling google auth before the app starts
 var configuration = builder.Configuration;
 
-/*
+
 builder.Services.AddAuthentication()
     .AddGoogle(options =>
     {
         options.ClientId = configuration["Authentication:Google:ClientId"];
         options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
     });
-*/
+
 
 var app = builder.Build();
 
