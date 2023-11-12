@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using NBA_Tracker.Data;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,9 +11,22 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+    .AddRoles<IdentityRole>() // enable support for authorization and roles (off by default)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//enabling google auth before out app starts
+var configuration = builder.Configuration;
+
+/*
+builder.Services.AddAuthentication()
+    .AddGoogle(options =>
+    {
+        options.ClientId = configuration["Authentication:Google:ClientId"];
+        options.ClientSecret = configuration["Authentication:Google:ClientSecret"];
+    });
+*/
 
 var app = builder.Build();
 
