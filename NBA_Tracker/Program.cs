@@ -16,7 +16,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
-//enabling google auth before out app starts
+//enabling google auth before the app starts
 var configuration = builder.Configuration;
 
 /*
