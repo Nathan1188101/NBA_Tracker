@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using NBA_Tracker.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using NBA_Tracker.Data;
+using NBA_Tracker.Models;
 
 namespace NBA_APP_Testing
 {
@@ -9,8 +11,9 @@ namespace NBA_APP_Testing
     {
         //class ars used in tests below 
         ApplicationDbContext _context; 
-        GamesController controller; 
+        GamesController controller;
 
+        [TestInitialize]
         public void TestInitialize()
         {
             //mock db
@@ -21,8 +24,11 @@ namespace NBA_APP_Testing
             _context = new ApplicationDbContext(options); 
 
             //add data to in-memory db
+            var game = new Game { GameId = 1, Date = DateTime.Now, Location = "Boston", HomeTeamId = 2, AwayTeamId = 3 };
 
             //instantiate controller w/db depencdency for all tests
+            controller = new GamesController(_context); 
+
         }
 
         [TestMethod]
