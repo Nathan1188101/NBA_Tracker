@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA_Tracker", "NBA_Tracker\NBA_Tracker.csproj", "{04A0B216-9016-4715-A2CF-CF21480FDE8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NBA_Tracker", "NBA_Tracker\NBA_Tracker.csproj", "{04A0B216-9016-4715-A2CF-CF21480FDE8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBA_APP_Testing", "NBA_APP_Testing\NBA_APP_Testing.csproj", "{D6186DCB-EEDA-4BD3-97E5-ACFD33DE69FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{04A0B216-9016-4715-A2CF-CF21480FDE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04A0B216-9016-4715-A2CF-CF21480FDE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04A0B216-9016-4715-A2CF-CF21480FDE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6186DCB-EEDA-4BD3-97E5-ACFD33DE69FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6186DCB-EEDA-4BD3-97E5-ACFD33DE69FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6186DCB-EEDA-4BD3-97E5-ACFD33DE69FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6186DCB-EEDA-4BD3-97E5-ACFD33DE69FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
