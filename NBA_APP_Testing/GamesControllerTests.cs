@@ -148,14 +148,23 @@ namespace NBA_APP_Testing
         }
 
         [TestMethod]
-        public void CreateInvalidLocationReturnsErrorView() 
+        public void CreateInvalidGameIdReturnsErrorView() 
         { 
-            var invalidLocation = new Game { }
+            //arrange 
+            var invalidId = new Game { GameId = -1, Date = DateTime.Now.AddDays(-1), Location = "Brooklyn", HomeTeamId = 10, AwayTeamId = 75 };
+            controller.ModelState.AddModelError("GameId", "GameId cannot be negative");
+
+            //act
+            var result = controller.Create(invalidId).Result;
+
+            //assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+            var ViewResult = (ViewResult)result;
+            Assert.AreEqual("Error", ViewResult.ViewName);
+
         }
 
         #endregion
-
-        //doing tests for delete might be easier, try going that route if you can't figure anything else out 
 
     }
 }

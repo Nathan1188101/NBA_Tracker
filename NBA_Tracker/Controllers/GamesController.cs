@@ -63,6 +63,7 @@ namespace NBA_Tracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("GameId,Date,Location,HomeTeamId,AwayTeamId")] Game game)
         {
+            //added check for null
             if(game == null)
             {
                 ModelState.AddModelError("Error", "Game cannot be null");
@@ -74,6 +75,7 @@ namespace NBA_Tracker.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //added check for non valid 
             else if (!ModelState.IsValid)
             {
                 return View("Error"); 
