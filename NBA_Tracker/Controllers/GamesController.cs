@@ -63,15 +63,24 @@ namespace NBA_Tracker.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("GameId,Date,Location,HomeTeamId,AwayTeamId")] Game game)
         {
+            if(game == null)
+            {
+                ModelState.AddModelError("Error", "Game cannot be null");
+                return View("Error");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(game);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            else if (!ModelState.IsValid)
+            {
+                return View("Error"); 
+            }
             ViewData["AwayTeamId"] = new SelectList(_context.Teams, "TeamId", "City", game.AwayTeamId);
             ViewData["HomeTeamId"] = new SelectList(_context.Teams, "TeamId", "City", game.HomeTeamId);
-            return View(game);
+            return View(game); 
         }
 
         // GET: Games/Edit/5
