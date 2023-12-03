@@ -31,17 +31,30 @@ namespace NBA_APP_Testing
 
         }
 
+
         [TestMethod]
         public void IndexReturnsView()
         {
 
-            //arrange 
-
-
             //act
+            var result = (ViewResult)controller.Index().Result;
 
             //assert
+            Assert.AreEqual("Index", result.ViewName);
             
         }
+
+        [TestMethod]
+        public void IndexReturnsGames()
+        {
+            //act
+            var result = (ViewResult)controller.Index().Result;
+            var model = (List<Game>)result.Model;
+
+            //assert
+            CollectionAssert.AreEqual(_context.Games.OrderBy(g => g.AwayTeam).ToList(), model);
+
+        }
+
     }
 }

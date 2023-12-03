@@ -25,7 +25,7 @@ namespace NBA_Tracker.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Games.Include(g => g.AwayTeam).Include(g => g.HomeTeam);
-            return View(await applicationDbContext.ToListAsync());
+            return View("Index", await applicationDbContext.ToListAsync());
         }
 
         // GET: Games/Details/5
